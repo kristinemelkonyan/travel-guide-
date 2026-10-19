@@ -1,144 +1,39 @@
-color: #687985;
-      margin-bottom: 25px;
-    }
-
-    /* Контакты */
-    .contact {
-      text-align: center;
-      background: #173449;
-      color: white;
-    }
-
-    .contact p {
-      margin: 15px auto 25px;
-      max-width: 600px;
-    }
-
-    /* Подвал */
-    footer {
-      padding: 25px 0;
-      text-align: center;
-      background: #102635;
-      color: #dce8ee;
-      font-size: 13px;
-    }
-
-    /* Адаптация для телефонов */
-    @media (max-width: 750px) {
-      nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .menu {
-        gap: 12px 18px;
-      }
-
-      .destinations,
-      .benefit-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: 480px;
-      }
-
-      .hero-content {
-        padding: 55px 0;
-      }
-
-      section.content-section {
-        padding: 55px 0;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- Шапка и меню -->
-  <header>
+<footer class="footer">
     <div class="container">
-      <nav>
-        <a href="#home" class="logo">✈ Discover Travel</a>
-
-        <div class="menu">
-          <a href="#home">Главная</a>
-          <a href="#destinations">Направления</a>
-          <a href="#benefits">Преимущества</a>
-          <a href="#about">О нас</a>
-          <a href="#contact">Контакты</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Главный экран -->
-  <main>
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Открой мир вместе с нами</h1>
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="#home">DISCOVER <span>TRAVEL</span></a>
           <p>
-            Путешествия, которые вдохновляют.
-            Лучшие направления, красивые пляжи
-            и незабываемые впечатления.
+            Откройте мир вместе с нами. Подбираем путешествия,
+            которые превращают мечты в воспоминания.
           </p>
-          <a href="#destinations" class="btn">
-            Выбрать направление →
-          </a>
+        </div>
+
+        <div>
+          <h3>Навигация</h3>
+          <div class="footer-links">
+            <a href="#home">Главная</a>
+            <a href="#destinations">Направления</a>
+            <a href="#tours">Туры</a>
+            <a href="#offers">Предложения</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Свяжитесь с нами</h3>
+          <div class="footer-links">
+            <a href="https://wa.me/79774119747"
+               target="_blank" rel="noopener">WhatsApp</a>
+            <a href="#contact">Подбор тура</a>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- Популярные направления -->
-    <section class="content-section" id="destinations">
-      <div class="container">
-        <h2 class="section-title">Популярные направления</h2>
-        <p class="section-subtitle">
-          Выбери страну для своего следующего путешествия.
-        </p>
+      <div class="footer-bottom">
+        © 2026 DISCOVER TRAVEL. Все права защищены.
+      </div>
+    </div>
+  </footer>
 
-        <div class="destinations">
-
-          <article class="destination">
-            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80"
-                 alt="Стамбул, Турция" loading="lazy">
-            <div class="destination-info">
-              <h3>🇹🇷 Турция</h3>
-              <p>Море, отели и отдых для всей семьи.</p>
-              <a class="btn" href="#contact">Подробнее</a>
-            </div>
-          </article>
-
-          <article class="destination">
-            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80"
-                 alt="Современный Дубай" loading="lazy">
-            <div class="destination-info">
-              <h3>🇦🇪 Дубай</h3>
-              <p>Роскошь, шопинг и впечатляющие виды.</p>
-              <a class="btn" href="#contact">Подробнее</a>
-            </div>
-          </article>
-
-          <article class="destination">
-            <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80"
-                 alt="Тропический остров на Мальдивах" loading="lazy">
-            <div class="destination-info">
-              <h3>🇲🇻 Мальдивы</h3>
-              <p>Бирюзовая вода и отдых на островах.</p>
-              <a class="btn" href="#contact">Подробнее</a>
-            </div>
-          </article>
-
-          <article class="destination">
-            <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80"
-                 alt="Пейзажи Таиланда" loading="lazy">
-            <div class="destination-info">
-              <h3>🇹🇭 Таиланд</h3>
-              <p>Тропики, природа и азиатская культура.</p>
-              <a class="btn" href="#contact">Подробнее</a>
-            </div>
-          </article>
-
-          <article class="destination">
+</body>
+</html>
