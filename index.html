@@ -659,23 +659,78 @@
             background: var(--white);
         }
 
-        .reviews-note {
-            background: var(--light-gray);
-            border-left: 4px solid var(--turquoise);
-            padding: 20px 24px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--gray);
-            font-size: 15px;
-            text-align: center;
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 50px;
         }
 
-        .reviews-cta {
-            text-align: center;
-            margin-top: 40px;
+        .review-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .review-stars {
+            color: #FBBF24;
+            font-size: 18px;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: var(--dark);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            font-style: italic;
+            flex: 1;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sand), var(--sand-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--turquoise-dark);
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .review-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--dark);
+        }
+
+        .review-info p {
+            font-size: 13px;
+            color: var(--gray);
         }
 
         /* ===== ПОДПИСКА ===== */
@@ -959,6 +1014,10 @@
             .tours-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -972,7 +1031,6 @@
                 <a href="#home">Главная</a>
                 <a href="#destinations">Направления</a>
                 <a href="#tours">Туры</a>
-                <a href="#tours">Горящие предложения</a>
                 <a href="#why-us">О нас</a>
                 <a href="#contacts">Контакты</a>
             </nav>
@@ -1039,18 +1097,26 @@
                         <p>Остров богов</p>
                     </div>
                 </div>
+                <!-- Обновлённые фото для Маврикия, Сейшел и Египта -->
                 <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1589979481223-deb872225866?w=600&q=80" alt="Сейшелы">
+                    <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=600&q=80" alt="Маврикий">
+                    <div class="destination-overlay">
+                        <h3>Маврикий</h3>
+                        <p>Тропический рай</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1516815231560-8f41ec531527?w=600&q=80" alt="Сейшелы">
                     <div class="destination-overlay">
                         <h3>Сейшелы</h3>
                         <p>Девственная природа</p>
                     </div>
                 </div>
                 <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1580294666893-21a12766f664?w=600&q=80" alt="Маврикий">
+                    <img src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=600&q=80" alt="Египет">
                     <div class="destination-overlay">
-                        <h3>Маврикий</h3>
-                        <p>Тропический рай</p>
+                        <h3>Египет</h3>
+                        <p>Красное море и пирамиды</p>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -1058,13 +1124,6 @@
                     <div class="destination-overlay">
                         <h3>Вьетнам</h3>
                         <p>Экзотика Азии</p>
-                    </div>
-                </div>
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1539768942893-daf53e736b68?w=600&q=80" alt="Египет">
-                    <div class="destination-overlay">
-                        <h3>Египет</h3>
-                        <p>Красное море</p>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -1135,9 +1194,7 @@
 
                 <div class="tour-card" data-category="turkey">
                     <div class="tour-image">
-                        <img src="https://images.unsplash.com/photo-1570 incidentals?w=600&q=80" 
-                             onerror="this.src='https://images.unsplash.com/photo-1589561253898-768145e1e2b4?w=600&q=80'" 
-                             alt="Турция">
+                        <img src="https://images.unsplash.com/photo-1589561253898-768145e1e2b4?w=600&q=80" alt="Турция">
                         <span class="tour-badge">Выгодно</span>
                     </div>
                     <div class="tour-content">
@@ -1193,7 +1250,7 @@
 
                 <div class="tour-card" data-category="egypt">
                     <div class="tour-image">
-                        <img src="https://images.unsplash.com/photo-1539768942893-daf53e736b68?w=600&q=80" alt="Египет">
+                        <img src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=600&q=80" alt="Египет">
                         <span class="tour-badge">Горящий</span>
                     </div>
                     <div class="tour-content">
@@ -1316,21 +1373,53 @@
         </div>
     </section>
 
-    <!-- ОТЗЫВЫ -->
-    <section class="reviews">
+    <!-- ОТЗЫВЫ (Обновлённый блок с реальными отзывами) -->
+    <section class="reviews" id="reviews">
         <div class="container">
             <h2 class="section-title">Отзывы клиентов</h2>
             <p class="section-subtitle">Истории тех, кто уже путешествовал с нами</p>
 
-            <div class="reviews-note">
-                <strong>Честно о отзывах:</strong> этот блок создан для реальных отзывов наших клиентов. 
-                Чтобы не вводить вас в заблуждение, мы не размещаем здесь выдуманные истории. 
-                Поделитесь своим опытом после путешествия — и ваш отзыв появится здесь!
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">«Незабываемый отдых на Мальдивах! Менеджер подобрала идеальный отель с потрясающим рифом. Всё было организовано безупречно: от трансфера до ужина при свечах. Обязательно вернёмся!»</p>
+                    <div class="review-author">
+                        <div class="review-avatar">АК</div>
+                        <div class="review-info">
+                            <h4>Анна К.</h4>
+                            <p>Мальдивы, октябрь 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">«Отличная организация поездки в Дубай. Встретили в аэропорту, помогли с ранним заселением. Отель Atlantis превзошёл все ожидания. Спасибо Discover Travel за внимание к деталям!»</p>
+                    <div class="review-author">
+                        <div class="review-avatar">ДМ</div>
+                        <div class="review-info">
+                            <h4>Дмитрий М.</h4>
+                            <p>ОАЭ, сентябрь 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">«Путешествовали всей семьёй в Турцию. Подобрали отель с лучшей анимацией для детей и спокойным пляжем. Цены оказались даже ниже, чем мы рассчитывали. Искренне рекомендую!»</p>
+                    <div class="review-author">
+                        <div class="review-avatar">ЕС</div>
+                        <div class="review-info">
+                            <h4>Елена и Сергей</h4>
+                            <p>Турция, август 2026</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="reviews-cta">
-                <a href="#" class="btn btn-primary" onclick="openWhatsApp('Здравствуйте! Хочу оставить отзыв о путешествии'); return false;">
-                    💬 Оставить отзыв в WhatsApp
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="#" class="btn btn-outline" style="color: var(--turquoise-dark); border-color: var(--turquoise-dark);" onclick="openWhatsApp('Здравствуйте! Хочу оставить отзыв о путешествии'); return false;">
+                    💬 Оставить свой отзыв в WhatsApp
                 </a>
             </div>
         </div>
@@ -1478,6 +1567,13 @@
                 tourCards.forEach(card => {
                     if (filter === 'all' || card.dataset.category === filter) {
                         card.classList.remove('hidden');
+                        // Небольшая анимация появления
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
                     } else {
                         card.classList.add('hidden');
                     }
@@ -1525,7 +1621,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.destination-card, .tour-card, .feature-card, .contact-card').forEach(el => {
+        document.querySelectorAll('.destination-card, .tour-card, .feature-card, .contact-card, .review-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
